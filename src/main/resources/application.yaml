@@ -1,0 +1,39 @@
+server:
+  port: 8080
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ****
+            client-secret: ***
+            redirect-uri: ***
+            scope:
+              - email
+
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 30MB
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/InstaVitaliy
+    username: postgres
+    password: ***
+jwt:
+  secret-key: ***
+  token-prefix: Bearer
+  header-string: Authorization
+  content-type: application/json
+  expiration-time: 600_000_000
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
